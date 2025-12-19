@@ -26,6 +26,21 @@
   </div>
 </section>
 
+<!-- Featured Products Section Start (Top) -->
+<section class="product-section featured-products-section" *ngIf="featuredProductIds?.length">
+  <div class="container-fluid-lg">
+    <div class="product-section-content">
+      <div class="product-list-wrapper">
+        <app-theme-product [productIds]="featuredProductIds" [style]="'horizontal'"
+          [slider]="true" [sliderOption]="productSlider4Item" [productStyle]="'product-solid'"
+          [boxClass]="'product-box-bg'">
+        </app-theme-product>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Featured Products Section End (Top) -->
+
 <!-- Product Triptych Section Start -->
 <section class="product-triptych-section">
   <div class="triptych-container">
@@ -71,6 +86,21 @@
   </div>
 </section>
 <!-- Product Triptych Section End -->
+
+<!-- Featured Products Section Start -->
+<section class="product-section featured-products-section" *ngIf="featuredProductIds?.length">
+  <div class="container-fluid-lg">
+    <div class="product-section-content">
+      <div class="product-list-wrapper">
+        <app-theme-product [productIds]="featuredProductIds" [style]="'horizontal'"
+          [slider]="true" [sliderOption]="productSlider4Item" [productStyle]="'product-solid'"
+          [boxClass]="'product-box-bg'">
+        </app-theme-product>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Featured Products Section End -->
 
 <!-- Banner Section Start -->
 <section class="tradition-banner-section">

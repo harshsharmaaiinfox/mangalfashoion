@@ -28,6 +28,10 @@ export class DenverComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public categorySlider = data.categorySlider9;
   public productSlider6ItemMargin = data.productSlider6ItemMargin;
+  public productSlider4Item = data.productSlider;
+  
+  // Featured Products by ID (4-5 products in a row)
+  public featuredProductIds: number[] = [11481, 11482, 11483, 11485, 11490];
   
   // Hero Slider Properties
   public currentSlide = 0;
@@ -210,10 +214,17 @@ export class DenverComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     if(this.data?.slug == this.slug) {
+      // Combine all product IDs (from data and featured products)
+      const allProductIds = [
+        ...(this.data?.content?.products_ids || []),
+        ...(this.featuredProductIds || [])
+      ];
+      const uniqueProductIds = [...new Set(allProductIds)];
+      
       const getProducts$ = this.store.dispatch(new GetProductByIds({
         status: 1,
-        paginate: this.data?.content?.products_ids.length,
-        ids: this.data?.content?.products_ids?.join(',')
+        paginate: uniqueProductIds.length,
+        ids: uniqueProductIds.join(',')
       }));
       const getBrand$ = this.store.dispatch(new GetBrands({ 
         status: 1,
