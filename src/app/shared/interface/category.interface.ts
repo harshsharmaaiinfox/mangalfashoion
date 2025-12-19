@@ -24,6 +24,7 @@ export interface Category {
     meta_title: string;
     meta_description: string;
     status: boolean;
+    is_clickable?: boolean;
     created_by_id?: number;
     created_at?: string;
     updated_at?: string;

@@ -30,7 +30,12 @@ export class CollectionCategoryFilterComponent {
     this.selectedCategories = this.filter['category'] ? this.filter['category'].split(',') : [];
   }
 
-  toggleCategory(slug: string) {
+  toggleCategory(slug: string, category?: Category) {
+    // Prevent toggling if category is not clickable
+    if (category && category.is_clickable === false) {
+      return;
+    }
+
     const index = this.selectedCategories.indexOf(slug);
 
     if (index === -1) {

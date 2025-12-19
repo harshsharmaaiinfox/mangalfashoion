@@ -9,7 +9,8 @@
         <li>
           <div class="category-item" 
                [class.selected]="checked(category?.slug!)"
-               (click)="toggleCategory(category?.slug!)">
+               [class.non-clickable]="category.is_clickable === false"
+               (click)="toggleCategory(category?.slug!, category)">
             <span class="category-name">{{ category?.name }}</span>
           </div>
           <ul class="sub-category-list" *ngIf="category?.subcategories.length">
