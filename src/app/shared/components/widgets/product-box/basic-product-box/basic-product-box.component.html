@@ -35,21 +35,21 @@
             {{ product.brand.name }}
         </div>
 
-        <!-- Product Name -->
-        <a [routerLink]="['/product/', product.slug]" class="product-name-link">
-            <h3 class="product-name">{{ product.name }}</h3>
-        </a>
-
-        <!-- Short Description -->
-        <p class="product-description" *ngIf="product.short_description">{{ product.short_description }}</p>
+        <!-- Product Name and Description -->
+        <div class="product-name-description-wrapper">
+            <a [routerLink]="['/product/', product.slug]" class="product-name-link">
+                <h3 class="product-name">{{ product.name }}</h3>
+            </a>
+            <span class="product-description" *ngIf="product.short_description"> - {{ product.short_description }}</span>
+        </div>
 
         <!-- Unit -->
         <div class="product-unit" *ngIf="product.unit">{{ product.unit }}</div>
 
         <!-- Price Section -->
         <div class="product-price-section">
-            <span class="product-price-current">{{ product.sale_price | currencySymbol }}</span>
-            <span class="product-price-old" *ngIf="product.discount">{{ product.price | currencySymbol }}</span>
+            <span class="product-price-current">{{ product.price | currencySymbol }}</span>
+            <span class="product-price-old" *ngIf="false">{{ product.sale_price | currencySymbol }}</span>
         </div>
 
         <!-- Rating and Stock Section -->

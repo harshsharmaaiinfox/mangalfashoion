@@ -31,7 +31,8 @@ export class DenverComponent implements OnInit, OnDestroy, AfterViewInit {
   public productSlider4Item = data.productSlider;
   
   // Featured Products by ID (4-5 products in a row)
-  public featuredProductIds: number[] = [11481, 11482, 11483, 11485, 11490];
+  public featuredProductIds: number[] = [668, 669, 670, 671];
+  public featuredProductIds2: number[] = [688, 689, 690, 691];
   
   // Hero Slider Properties
   public currentSlide = 0;
@@ -217,7 +218,8 @@ export class DenverComponent implements OnInit, OnDestroy, AfterViewInit {
       // Combine all product IDs (from data and featured products)
       const allProductIds = [
         ...(this.data?.content?.products_ids || []),
-        ...(this.featuredProductIds || [])
+        ...(this.featuredProductIds || []),
+        ...(this.featuredProductIds2 || [])
       ];
       const uniqueProductIds = [...new Set(allProductIds)];
       

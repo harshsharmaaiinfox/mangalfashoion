@@ -672,6 +672,100 @@
   }
 }
 
+// Featured Products Section - Equal Height Cards
+.featured-products-section {
+  ::ng-deep .product-box-modern {
+    // Ensure all product cards have equal height
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    // Hide discount badge
+    .product-badge {
+      display: none !important;
+    }
+    
+    .product-info {
+      // Ensure flexbox layout pushes button to bottom
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+      // Name and description wrapper - one line with truncation
+      .product-name-description-wrapper {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin-bottom: 2px;
+        line-height: 1.4;
+        
+        .product-name-link {
+          display: inline;
+          margin: 0;
+          padding: 0;
+          text-decoration: none;
+          vertical-align: baseline;
+          
+          .product-name {
+            display: inline;
+            line-height: inherit;
+            margin: 0;
+            padding: 0;
+            min-height: auto;
+            font-size: 16px;
+            font-weight: 600;
+            color: #212529;
+            
+            @media (max-width: 768px) {
+              font-size: 15px;
+            }
+          }
+        }
+        
+        .product-description {
+          display: inline;
+          margin: 0;
+          padding: 0;
+          font-size: 13px;
+          color: #6c757d;
+          line-height: inherit;
+          vertical-align: baseline;
+        }
+      }
+      
+      // Regular price is now shown as the main price (no discount display)
+      .product-price-section {
+        .product-price-old {
+          display: none !important;
+        }
+      }
+      
+      // Align button at the bottom
+      .product-action {
+        margin-top: auto;
+        align-self: flex-end;
+        width: 100%;
+      }
+    }
+  }
+  
+  // Ensure all product items in the grid have equal height
+  ::ng-deep .owl-item,
+  ::ng-deep .row > div {
+    display: flex;
+    height: 100%;
+    
+    > div,
+    > * {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
 // Trending Video Slider Section Styles
 .trending-video-section {
   width: 100%;
